@@ -1,10 +1,20 @@
 version: '3.5'
 services:
-	loterioma_lobby_rabbit:
-		image: rabbitmq:3-management
-      		restart: always
-      		ports:
-        		- "5672:5672"
-        		- "15672:15672"
-      		networks:
-        		- my-proxy-net
+  loterioma_infrastructure_rabbit:
+    image: rabbitmq:3-management
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - my-proxy-net
+
+  loterioma_infrastructure_redis:
+    image: "redis:alpine"
+    networks:
+      - my-proxy-net
+
+networks:
+  my-proxy-net:
+    external: true
+    name: loterioma-net
