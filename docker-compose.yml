@@ -18,7 +18,7 @@ services:
     image: phpmyadmin/phpmyadmin
     container_name: nsid_phpmyadmin
     environment:
-      PMA_HOSTS: loterioma_lobby_db,loterioma_manager_db
+      PMA_HOSTS: loterioma_lobby_db,loterioma_manager_db,loterioma_engineer_db
       PMA_PORT: 3306
     ports:
       - 5901:80
